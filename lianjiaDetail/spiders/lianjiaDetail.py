@@ -77,7 +77,6 @@ class ToScrapeSpiderXPath(scrapy.Spider):
         yield {
             'house_code': house_code,
             'price_content': price_content,
-            'price': price,
             'tags': tags,
             'house_type': house_type,
             'sub_way': sub_way,

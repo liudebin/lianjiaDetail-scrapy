@@ -18,7 +18,6 @@ import scrapy
 class LianjiadetailItem(scrapy.Item):
     house_code = scrapy.Field()
     price_content = scrapy.Field()
-    price = scrapy.Field()
     tags = scrapy.Field()
     house_type = scrapy.Field()
     sub_way = scrapy.Field()

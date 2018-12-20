@@ -13,13 +13,13 @@ class LianjiaPipeline(object):
         cursor = dbObject.cursor()
         cursor.execute("USE test")
         # sql = "INSERT INTO articles(author,title,times,url,admire,likes) VALUES(%s,%s,%s,%s,%s,%s)"
-        sql = "update  rent_detail_lianjia set price_content = %s, price= %s,tags= %s,house_type= %s," \
+        sql = "update  rent_detail_lianjia set price_content = %s, tags= %s,house_type= %s," \
               "sub_way= %s,house_comment= %s,upload_date= %s,square= %s,direction= %s,base_info= %s ," \
               "community_code = %s, community = %s,  community_link = %s" \
               "where house_code = %s"
         # sql = "update rent_detail_lianjia set community_code = %s, community = %s,  community_link = %s where house_code = %s"
         try:
-            cursor.execute(sql, (item['price_content'], item['price'], item['tags'], item['house_type'],
+            cursor.execute(sql, (item['price_content'], item['tags'], item['house_type'],
                                  item['sub_way'], item['house_comment'], item['upload_date'], item['square'],
                                  item['direct'], item['base_info_str'], item['community_code'], item['community'],
                                  item['community_link']
