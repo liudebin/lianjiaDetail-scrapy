@@ -14,10 +14,10 @@ class LianjiaPipeline(object):
         cursor.execute("USE test")
         # sql = "INSERT INTO articles(author,title,times,url,admire,likes) VALUES(%s,%s,%s,%s,%s,%s)"
         sql = "update  rent_detail_lianjia set price_content = %s, tags= %s,house_type= %s," \
-              "sub_way= %s,house_comment= %s,upload_date= %s,square= %s,direction= %s,base_info= %s ," \
-              "community_code = %s, community = %s,  community_link = %s" \
+              " sub_way= %s,house_comment= %s,upload_date= %s,square= %s,direction= %s,base_info= %s ," \
+              " community_code = %s, community = %s,  community_link = %s" \
               " , rent_status = CASE WHEN rent_status = -1 THEN 0 ELSE rent_status END" \
-              "where house_code = %s"
+              " where house_code = %s"
         # sql = "update rent_detail_lianjia set community_code = %s, community = %s,  community_link = %s where house_code = %s"
         try:
             cursor.execute(sql, (item['price_content'], item['tags'], item['house_type'],
