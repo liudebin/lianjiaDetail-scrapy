@@ -41,8 +41,8 @@ class ToScrapeSpiderXPath(scrapy.Spider):
         house_code = code[5:]
 
         content__aside = response.xpath('.//div[@class="content__aside fr"]')[0]
-        price_content = content__aside.xpath('.//p[@class="content__aside--title"]')[0].xpath('string(.)').extract()
-        price = int(content__aside.xpath('.//p[@class="content__aside--title"]/span/text()')[0].extract())
+        price_content = content__aside.xpath('.//div[@class="content__aside--title"]')[0].xpath('string(.)').extract()
+        price = int(content__aside.xpath('.//div[@class="content__aside--title"]/span/text()')[0].extract())
 
         tags = ""
         for quote in content__aside.xpath('.//p[@class="content__aside--tags"]/i'):
