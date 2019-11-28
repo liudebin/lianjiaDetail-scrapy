@@ -49,11 +49,16 @@ class ToScrapeSpiderXPath(scrapy.Spider):
             tags = tags + "/" + quote.xpath('string(.)').extract()[0]
 
         content__article__table = \
-            content__aside.xpath('//ul[@class="content__aside__list"]/p[@class="content__article__table"]')[0]
+            content__aside.xpath('//ul[@class="content__aside__list"]')[0]
 
-        house_type = content__article__table.xpath('.//span[position()=2]')[0].xpath('string(.)').extract()
-        square = content__article__table.xpath('.//span[position()=3]')[0].xpath('string(.)').extract()
-        direct = content__article__table.xpath('.//span[position()=4]')[0].xpath('string(.)').extract()
+        house_type_content_span = content__article__table.xpath('.//li[position()=2]/span')[0].xpath('string(.)').extract_first()
+        house_type_content = content__article__table.xpath('.//li[position()=2]')[0].xpath('string(.)').extract_first()
+        house_type_content1 = house_type_content.replace(house_type_content_span, "")
+        house_type = house_type_content1.split()[0]
+
+        square = house_type_content1.split()[1]
+
+        direct = content__article__table.xpath('.//li[position()=3]')[0].xpath('string(.)').extract()
 
         base_info = response.xpath('.//div[@class="content__article__info"]')[0]
         base_info_str = ""
